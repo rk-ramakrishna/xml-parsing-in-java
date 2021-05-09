@@ -5,9 +5,9 @@ This repository has been created to outline various mechanisms available in java
 Java provides below APIs to parse XML documents.
 
 1. SAX.
-
 2. DOM
 3. STAX
+4. JAXB
 
 
 ### 1. SAX [Simple API for XML] 
@@ -55,4 +55,59 @@ Java provides below APIs to parse XML documents.
   DocumentBuilder parser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
   Document document = parser.parse(new File("Orders.xml"));   
   
+
+### 4. JAXB [Java API for XML Binding]
+
+**What is XML binding in JAXB?**
+XML binding is the representation of XML document content as an object in computer memory.
+JAXB (Java Architecture for XML Binding) uses annotations to bind XML documents to a java object model.
+
+**What is Unmarshalling [Reading] in JAXB?**
+Unmarshalling refers to the process of converting XML data into JAXB-derived Java objects.
+
+**What is marshalling [Writing] in JAXB?**
+Marshalling provides a client application the ability to convert a JAXB-derived Java object tree into XML data.
+
+**Differences between JAXB, DOM, SAX**
+The Java **DOM and SAX parsing are lower-level APIs to parse XML documents**, **while JAXB is a higher-level API for converting XML elements and attributes to a Java object hierarchy (and vice versa).** Implementations of JAXB may use a DOM or SAX parser behind the scenes to do the actual parsing of the XML input data.
+**JAXB uses annotations to bind XML documents to a java object model.**
+
+**What do you mean by high level API of JAXB and low level API of DOM,SAX**
+Low level API means we need to write lot of DOM, SAX based java statments to convert the XML documnet to Java. 
+High level API means we no need to write lof of java statments to convert the XML documents to Java
+
+**References:**
+https://www.javapedia.net/JAXB#qanda1842
+
+
+**Difference between JAXP and JAXB**
+
+JAXP (Java API for XML Processing) refers to the outdated low-level XML APIs in JavaSE, such as DOM, SAX and STAX.JAXP is programming model [API] provided in JDK to switch between various implementations like DOM, SAX. JAXP is JPA.  
+JAXB (Java Architecture for XML Binding) uses annotations to bind XML documents to a java object model.
+
+
+**Perfomance differences betwen DOM, SAX and JAXB**
+
+Please refer below to findout differences between DOM, SAX and JAXB
+https://dzone.com/articles/jaxb-sax-dom-performance
+
+Summary:
+1. The peformance times for pure SAX are slightly better than JAXB but only for very large files. 
+   Unless you are using very large files the performance differences are not worth worrying about. 
+   
+2. The progamming model advantages of JAXB win out over the complexitiy of the SAX programming model. 
+
+3. JAXB also provides random accses like DOM does. SAX does not provide this.
+
+4. Performance times look a lot better with Woodstox, if JAXB / StAX is being used.
+
+**please note above perfomance differences are calculate on JDK 6 and above post is a Decade old. We might have more greter perfomance in JDK 8**
+
+
+  
+   
+
+
+
+
 
